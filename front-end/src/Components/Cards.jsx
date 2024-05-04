@@ -10,6 +10,8 @@ export default function Cards() {
     const [loading, setLoading] = useState(false);
     const [page, setPage] = useState(1);
     const [reachedEnd, setReachedEnd] = useState(false);
+    const [change,setChange] = useState(false);
+    const [limit,setLimit] = useState(12);
     const [filters, setFilters] = useState({
         minExp: '',
         companyName: '',
@@ -19,7 +21,7 @@ export default function Cards() {
         minJdSalary: ''
     });
     // Fetch data from API
-    const fetchData = async (pageNumber,limit) => {
+    const fetchData = async (pageNumber) => {
         try {
             setLoading(true);
             const response = await fetch(`https://api.weekday.technology/adhoc/getSampleJdJSON`, {
@@ -49,7 +51,7 @@ export default function Cards() {
     };
     // Initial data fetch on component mount to get first 12 jobs
     useEffect(() => {
-        fetchData(1,12);
+        fetchData(1);
     }, []);
 
     // Function to handle scrolling and fetch more data when nearing end
@@ -77,8 +79,11 @@ export default function Cards() {
     useEffect(() => {
         setPage(1);
         setData([]);
+        setLimit(100);
         setReachedEnd(false);
-        fetchData(1,100);
+        if(setChange){
+            fetchData(1);
+        }
     }, [filters]);
     
     // Function to handle changes in filter inputs
@@ -88,6 +93,7 @@ export default function Cards() {
             ...prevFilters,
             [name]: type === 'checkbox' ? event.target.checked : value
         }));
+        setChange(true);
     };
     const filterItems = (data) => {
         for (let filter in filters) {
