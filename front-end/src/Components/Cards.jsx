@@ -118,7 +118,7 @@ export default function Cards() {
                 </div>
                 <div className='flex flex-row justify-between mb-4 xl:mb-0'>
                     <div className='flex flex-col items-center mb-2 lg:mb-0 justify-center w-[30%] xl:text-xl md:text-xl sm:text-sm text-xs'>
-                        <label className="flex items-center">
+                        <label className="flex items-center p-4">
                             <input
                                 type="radio"
                                 name="remote"
@@ -128,7 +128,7 @@ export default function Cards() {
                             />
                             <span className="ml-2">OnSite</span>
                         </label>
-                        <label className="flex items-center">
+                        <label className="flex items-center p-4">
                             <input
                                 type="radio"
                                 name="remote"
