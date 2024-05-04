@@ -163,7 +163,7 @@ export default function Cards() {
             </div>
             <div className='flex flex-wrap  2xl:justify-between xl:justify-between lg:justify-between md:justify-between sm:justify-between justify-center w-[100%]' style={{ minHeight: `${minItemsToDisplay * 150}px` }}>
                 {data.filter((item) => filterItems(item)).map((job, index) => (
-                    <div className='w-[85%] 2xl:w-[30%] 2xl:p-10 xl:w-[30%] xl:p-8 md:w[30%] lg:w-[30%] lg:p-5 md:w-[45%] md:p-4 sm:w-[45%] sm:p-3 border rounded-lg shadow-md mb-4' key={index}>
+                    <div className='w-[90%] 2xl:w-[30%] 2xl:p-10 xl:w-[30%] xl:p-8 md:w[30%] lg:w-[30%] lg:p-5 md:w-[45%] md:p-4 sm:w-[45%] sm:p-3 border rounded-lg shadow-md mb-4' key={index}>
                         <Card data={job} />
                     </div>
                 ))}
