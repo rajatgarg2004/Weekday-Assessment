@@ -9,14 +9,14 @@ export default function Card(props){
     };
     return (
         <div className="flex flex-col items- p-4 h-full">
-            <div className="flex flex-row text-center 2xl:text-2xl xl:text-xl md:text-xl sm:text-sm text-sm">
+            <div className="flex flex-row 2xl:text-2xl xl:text-xl md:text-xl sm:text-xl text-xl">
                 <div className="flex flex-col w-[30%]">
                     <img src={data.logoUrl} alt="logo"/>
                 </div>
-                <div className="flex flex-col justify-between w-[60%] pl-4">
-                    <span className="text-left font-bold">{data.companyName}</span>
-                    <span className="text-left">{data.jobRole}</span>
-                    <span className='text-left'>{data.location}</span>
+                <div className="flex flex-col justify-between 2xl:text-left xl:text-left md:text-left text-center w-[60%] pl-4">
+                    <span className="font-bold">{data.companyName}</span>
+                    <span >{data.jobRole}</span>
+                    <span >{data.location}</span>
                 </div>  
             </div>
             <div className='text-left flex-grow'>
