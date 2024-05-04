@@ -46,7 +46,7 @@ export default function Card(props){
                     {expanded ? data.jobDetailsFromCompany : `${data.jobDetailsFromCompany.slice(0, 200)}...`}
                 </span>
                 {data.jobDetailsFromCompany.length > 100 && (
-                        <button className="text-blue-500 w-[50%] font-semibold focus:outline-none" onClick={toggleDescription}>
+                        <button className="text-blue-500 w-[50%] m-4 font-semibold focus:outline-none" onClick={toggleDescription}>
                             {expanded ? 'View Less' : 'View More'}
                         </button>
                     )}
@@ -68,7 +68,7 @@ export default function Card(props){
                 }
             </span>
             <div className='flex justify-center w-[100%]'>
-                <button className='w-[50%]'>
+                <button className='w-[50%] mt-5'>
                     Easy Apply
                 </button>
             </div>
