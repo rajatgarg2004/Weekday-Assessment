@@ -1,4 +1,4 @@
-THIS PROJECT HAS BEEN DEPLOYED ON <a href="https://weekday-assessment.vercel.app/" target="_blank">
+THIS PROJECT HAS BEEN DEPLOYED ON <a href="https://weekday-assessment.vercel.app/" target="_blank">Link</a>
 
 # React + Vite
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
