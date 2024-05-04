@@ -1,9 +1,20 @@
 THIS PROJECT HAS BEEN DEPLOYED ON <a href="https://weekday-assessment.vercel.app/" target="_blank">Link</a>
 
 # React + Vite
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-Currently, two official plugins are available:
+To run this app locally
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Firstly clone the repository
+```bash
+git clone https://github.com/rajatgarg2004/Weekday-Assessment.git
+```
+
+Then navigate to the front-end of the directory
+```bash
+cd front-end
+```
+
+To run the app on local host
+```bash
+npm run dev
+```
