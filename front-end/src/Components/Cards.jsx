@@ -144,7 +144,9 @@ export default function Cards() {
                     <input name="minJdSalary" type="number" defaultValue={filters.minJdSalary} className="text-center rounded-lg p-4 mb-2 lg:mb-0 w-[30%] 2xl:[1rem] xl:text-[1rem] md:text-[1rem] sm:text-[0.79rem] text-[0.7rem]" onChange={handleFilterChange} placeholder='Min Pay' />
                 </div>
             </div>
-
+            <div>
+                <h1 className='mb-6 font-bold 2xl:text-2xl xl:text-xl md:text-[1rem] sm:text-[0.79rem] text-[0.7rem]'>Scroll To See More Jobs</h1>
+            </div>
             <div className='flex flex-wrap  2xl:justify-between xl:justify-between lg:justify-between md:justify-between sm:justify-between justify-center w-[100%]' style={{ minHeight: `${minItemsToDisplay * 150}px` }}>
                 {data.filter((item) => filterItems(item)).map((job, index) => (
                     <div className='w-[85%] 2xl:w-[30%] 2xl:p-10 xl:w-[30%] xl:p-8 md:w[30%] lg:w-[30%] lg:p-5 md:w-[45%] md:p-4 sm:w-[45%] sm:p-3 border rounded-lg shadow-md mb-4' key={index}>
