@@ -80,7 +80,7 @@ export default function Cards() {
         setPage(1);
         setData([]);
         setReachedEnd(false);
-        if(setChange){
+        if(change){
             setLimit(100);
             fetchData(1);
         }
