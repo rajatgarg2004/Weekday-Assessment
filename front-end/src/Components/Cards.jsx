@@ -9,33 +9,39 @@ export default function Cards() {
     const [loading, setLoading] = useState(false);
     const [page, setPage] = useState(1);
     const [reachedEnd, setReachedEnd] = useState(false);
-
-    const fetchData = async () => {
+    const fetchData = async (pageNumber) => {
         try {
             setLoading(true);
-            const response = await fetch(`https://api.weekday.technology/adhoc/getSampleJdJSON?page=${page}&limit=12`, {
+            const response = await fetch(`https://api.weekday.technology/adhoc/getSampleJdJSON`, {
                 method: "POST",
                 headers: myHeaders,
                 body: JSON.stringify({
                     "limit": 12,
-                    "offset": (page - 1) * 12
+                    "offset": (pageNumber - 1) * 12
                 })
             });
             const result = await response.json();
             if (result.jdList.length === 0) {
                 setReachedEnd(true);
             } else {
-                setData(prevData => [...prevData, ...result.jdList]);
+                if (pageNumber === 1) {
+                    setData(result.jdList);
+                } else {
+                    setData(prevData => [...prevData, ...result.jdList]);
+                }
                 setPage(prevPage => prevPage + 1);
             }
+
+            console.log(data);
             setLoading(false);
         } catch (error) {
             console.error(error);
             setLoading(false);
         }
     };
+
     useEffect(() => {
-        fetchData();
+        fetchData(1);
     }, []);
 
     const handleScroll = () => {
@@ -44,19 +50,28 @@ export default function Cards() {
             && !loading
             && !reachedEnd
         ) {
-            fetchData();
+            if(page>1){
+            fetchData(page);
+            }
         }
     };
 
     useEffect(() => {
-        if(page!=1){
-            window.addEventListener('scroll', handleScroll);
+        window.addEventListener('scroll', handleScroll);
+        if(page>1){
             return () => window.removeEventListener('scroll', handleScroll);
         }
-    }, [loading, reachedEnd]);
+    }, [loading, reachedEnd, page]);
 
     return (
         <>
+            <div>
+                <ul>
+                    <li>
+                        
+                    </li>
+                </ul>
+            </div>
             <div className='flex flex-wrap'>
                 {data.map((job, index) => (
                     <div className='w-[30%] p-10' key={index}>
