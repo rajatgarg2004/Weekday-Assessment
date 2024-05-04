@@ -8,8 +8,8 @@ export default function Card(props){
         setExpanded(!expanded);
     };
     return (
-        <div className="flex flex-col items-start">
-            <div className="flex flex-row">
+        <div className="flex flex-col items-start p-4">
+            <div className="flex flex-row 2xl:text-2xl xl:text-xl md:text-xl sm:text-sm text-xs">
                 <div className="flex flex-col w-[30%]">
                     <img src={data.logoUrl} alt="logo"/>
                 </div>
@@ -19,7 +19,7 @@ export default function Card(props){
                     <span className='text-left'>{data.location}</span>
                 </div>  
             </div>
-            <span className="mt-2">Estimated Salary: 
+            <span className="mt-2 2xl:base xl:text-sm md:text-sm sm:text-[0.79rem] text-[0.75rem]">Estimated Salary: 
                 {
                     data.minJdSalary && data.maxJdSalary?
                     <>
@@ -39,9 +39,9 @@ export default function Card(props){
                 }
             </span>   
             <span>
-                Job Details
+                Job Details:
             </span>
-            <div className="flex flex-col items-center">
+            <div className="flex flex-col items-center 2xl:xl xl:text-sm md:text-sm sm:text-[0.79rem] text-[0.75rem]">
                 <span className='text-left'>
                     {expanded ? data.jobDetailsFromCompany : `${data.jobDetailsFromCompany.slice(0, 200)}...`}
                 </span>
@@ -52,7 +52,7 @@ export default function Card(props){
                     )}
             </div>
             <span>Experience Required</span>
-            <span>
+            <span className='2xl:base xl:text-sm md:text-sm sm:text-[0.79rem] text-[0.75rem]'>
                 {
                     data.minExp && data.maxExp?
                     <>{data.minExp} to {data.maxExp} years</>:
