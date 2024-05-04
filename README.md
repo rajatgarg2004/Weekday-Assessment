@@ -1,6 +1,6 @@
 THIS PROJECT HAS BEEN DEPLOYED ON <a href="https://weekday-assessment.vercel.app/" target="_blank">Link</a>
 
-# React + Vite
+# React + Vite + TailwindCss
 
 To run this app locally
 
@@ -14,7 +14,7 @@ Then navigate to the front-end of the directory
 cd front-end
 ```
 
-To run the app on local host
+To run the app
 ```bash
 npm run dev
 ```
