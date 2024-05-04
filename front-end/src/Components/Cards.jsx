@@ -4,11 +4,18 @@ import Card from './Card';
 export default function Cards() {
     const myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
-
     const [data, setData] = useState([]);
     const [loading, setLoading] = useState(false);
     const [page, setPage] = useState(1);
     const [reachedEnd, setReachedEnd] = useState(false);
+    const [filters, setFilters] = useState({
+        minExp: '',
+        companyName: '',
+        location: '',
+        remote: false,
+        role: '',
+        minJdSalary: ''
+    });
     const fetchData = async (pageNumber) => {
         try {
             setLoading(true);
@@ -50,27 +57,50 @@ export default function Cards() {
             && !loading
             && !reachedEnd
         ) {
-            if(page>1){
-            fetchData(page);
+            if (page > 1) {
+                fetchData(page);
             }
         }
     };
 
     useEffect(() => {
         window.addEventListener('scroll', handleScroll);
-        if(page>1){
+        if (page > 1) {
             return () => window.removeEventListener('scroll', handleScroll);
         }
     }, [loading, reachedEnd, page]);
 
     return (
         <>
-            <div>
-                <ul>
-                    <li>
-                        
-                    </li>
-                </ul>
+            <div className='flex flex-row justify-between'>
+                <input type="number" className="text-center" placeholder='Minimum Experience' />
+                <input type="text" className="text-center" placeholder='Company Name' />
+                <input type="text" className="text-center" placeholder='Location' />
+                <div className='flex flex-col'>
+                    <label className="flex items-center">
+                        <input
+                            type="radio"
+                            name="location"
+                            value="onsite"
+                            checked={!filters.location}
+                            onChange={() => setFilters({ ...filters, location: false })}
+                        />
+                        <span className="ml-2">OnSite</span>
+                    </label>
+                    <label className="flex items-center">
+                        <input
+                            type="radio"
+                            name="location"
+                            value="remote"
+                            checked={filters.location}
+                            onChange={() => setFilters({ ...filters, location: true })}
+                        />
+                        <span className="ml-2">Remote</span>
+                    </label>
+                </div>
+
+                <input type="text" className="text-center" placeholder='Role' />
+                <input type="number" className="text-center" placeholder='Min Pay' />
             </div>
             <div className='flex flex-wrap'>
                 {data.map((job, index) => (

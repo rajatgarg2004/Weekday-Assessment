@@ -4,7 +4,6 @@ import viteLogo from '/vite.svg'
 import './App.css'
 import Cards from './Components/Cards';
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
     <>
