@@ -68,7 +68,7 @@ export default function Card(props){
                 }
             </span>
             <div className='flex justify-center w-[100%]'>
-                <button className='sm:w-[60%] 2xl:w-[40%] xl:w-[45%] lg:w-[50%] md:w-[50%] mt-5'>
+                <button className='sm:w-[70%] 2xl:w-[50%] xl:w-[55%] lg:w-[60%] md:w-[65%] mt-5'>
                     Easy Apply
                 </button>
             </div>

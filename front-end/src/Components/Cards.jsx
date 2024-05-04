@@ -81,7 +81,7 @@ export default function Cards() {
         setData([]);
         setReachedEnd(false);
         if(change){
-            setLimit(100);
+            setLimit(70);
             fetchData(1);
         }
     }, [filters]);
