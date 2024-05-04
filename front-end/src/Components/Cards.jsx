@@ -2,8 +2,10 @@ import React, { useState, useEffect } from 'react';
 import Card from './Card';
 
 export default function Cards() {
+    // Initialize headers for fetch request
     const myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
+    // State variables
     const [data, setData] = useState([]);
     const [loading, setLoading] = useState(false);
     const [page, setPage] = useState(1);
@@ -16,6 +18,7 @@ export default function Cards() {
         jobRole: '',
         minJdSalary: ''
     });
+    // Fetch data from API
     const fetchData = async (pageNumber,limit) => {
         try {
             setLoading(true);
@@ -23,8 +26,8 @@ export default function Cards() {
                 method: "POST",
                 headers: myHeaders,
                 body: JSON.stringify({
-                    "limit": 12,
-                    "offset": (pageNumber - 1) * 12
+                    "limit": limit,
+                    "offset": (pageNumber - 1) * limit
                 })
             });
             const result = await response.json();
@@ -44,10 +47,12 @@ export default function Cards() {
             setLoading(false);
         }
     };
-
+    // Initial data fetch on component mount to get first 12 jobs
     useEffect(() => {
         fetchData(1,12);
     }, []);
+
+    // Function to handle scrolling and fetch more data when nearing end
 
     const handleScroll = () => {
         if (
@@ -68,12 +73,15 @@ export default function Cards() {
         return () => window.removeEventListener('scroll', handleScroll);
     }, [loading, reachedEnd, page, filters]);
 
+    // Effect to reset page and fetch data when filters change
     useEffect(() => {
         setPage(1);
         setData([]);
         setReachedEnd(false);
         fetchData(1,100);
     }, [filters]);
+    
+    // Function to handle changes in filter inputs
     const handleFilterChange = (event) => {
         const { name, value, type } = event.target;
         setFilters(prevFilters => ({
