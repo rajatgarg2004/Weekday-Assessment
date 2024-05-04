@@ -13,7 +13,7 @@ export default function Card(props){
                 <div className="flex flex-col w-[30%]">
                     <img src={data.logoUrl} alt="logo"/>
                 </div>
-                <div class="flex flex-col justify-between w-[60%] pl-4">
+                <div className="flex flex-col justify-between w-[60%] pl-4">
                     <span className="text-left font-bold">{data.companyName}</span>
                     <span className="text-left">{data.jobRole}</span>
                     <span className='text-left'>{data.location}</span>
