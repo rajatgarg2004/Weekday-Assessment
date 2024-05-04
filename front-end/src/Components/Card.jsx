@@ -9,7 +9,7 @@ export default function Card(props){
     };
     return (
         <div className="flex flex-col items- p-4 h-full">
-            <div className="flex flex-row 2xl:text-2xl xl:text-xl md:text-xl sm:text-sm text-xs">
+            <div className="flex flex-row text-center 2xl:text-2xl xl:text-xl md:text-xl sm:text-sm text-sm">
                 <div className="flex flex-col w-[30%]">
                     <img src={data.logoUrl} alt="logo"/>
                 </div>
