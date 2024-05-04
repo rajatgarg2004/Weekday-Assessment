@@ -79,9 +79,9 @@ export default function Cards() {
     useEffect(() => {
         setPage(1);
         setData([]);
-        setLimit(100);
         setReachedEnd(false);
         if(setChange){
+            setLimit(100);
             fetchData(1);
         }
     }, [filters]);
